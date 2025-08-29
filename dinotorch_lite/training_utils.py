@@ -205,6 +205,9 @@ def h1_training_fno(model,
                     num_splits=4):
     device = next(model.parameters()).device
 
+    output_projector = output_projector.to(device)
+    input_basis = input_basis.to(device)
+
     if mode == "forward":
         assert input_basis is not None
         raise
