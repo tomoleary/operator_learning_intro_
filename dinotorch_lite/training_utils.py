@@ -19,7 +19,7 @@ import torch.nn as nn
 
 from tqdm import tqdm
 
-from .metrics import squared_f_norm, squared_f_error
+from .dinotorch_utils import squared_f_norm, squared_f_error
 
 
 def l2_training(model,loss_func,train_loader, validation_loader,\
