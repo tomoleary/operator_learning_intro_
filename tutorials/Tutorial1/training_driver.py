@@ -119,6 +119,8 @@ elif architecture in ['fno','don']:
         J_data = J_data_dict['JstarPhi_data'].transpose((0,2,1))[:,:rQ,:]
         POD_encoder = np.load(data_dir+'POD/POD_encoder.npy')[:,:rQ]
         output_projector = torch.Tensor(POD_encoder).to(torch.float32)
+        AS_decoder = np.load(data_dir+'AS_input_encoder.npy')[:,:rM]
+        input_basis = torch.Tensor(AS_decoder).to(torch.float32)
 
 
 assert args.n_train + n_test  <= n_data and args.n_train > 0
@@ -181,7 +183,7 @@ else:
     if architecture == 'fno':
         network, history = h1_training_fno(model,loss_func_l2, loss_func_jac, train_loader, validation_loader,\
                              optimizer,lr_scheduler=lr_scheduler,n_epochs = n_epochs, verbose=True,\
-                                            output_projector = output_projector)
+                                            input_basis = input_basis, output_projector = output_projector)
     else:
         network, history = h1_training(model,loss_func_l2, loss_func_jac, train_loader, validation_loader,\
                              optimizer,lr_scheduler=lr_scheduler,n_epochs = n_epochs, verbose=True,\
