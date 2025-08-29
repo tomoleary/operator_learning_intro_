@@ -121,6 +121,7 @@ elif architecture in ['fno','don']:
         POD_encoder = np.load(data_dir+'POD/POD_encoder.npy')[:,:rQ]
         output_projector = torch.Tensor(POD_encoder).to(torch.float32)
         AS_decoder = np.load(data_dir+'AS_input_encoder.npy')[:,:rM]
+        J_data = np.einsum('dqm,mr->dqr',J_data,AS_decoder)
         input_basis = torch.Tensor(AS_decoder).to(torch.float32)
 
 
