@@ -114,6 +114,7 @@ elif architecture in ['fno','don']:
         nx = fno_metadata['nx']
         ny = fno_metadata['ny']
     rQ = args.rQ
+    rM = args.rM
     if formulation == 'h1':
         J_data_dict = np.load(data_dir+'JstarPhi_data.npz',allow_pickle=True)
         J_data = J_data_dict['JstarPhi_data'].transpose((0,2,1))[:,:rQ,:]
