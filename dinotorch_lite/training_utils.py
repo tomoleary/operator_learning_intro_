@@ -13,7 +13,11 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 # For additional questions contact Thomas O'Leary-Roseberry
 
+from copy import deepcopy
 import torch
+import torch.nn as nn
+
+from tqdm import tqdm
 
 
 def l2_training(model,loss_func,train_loader, validation_loader,\
