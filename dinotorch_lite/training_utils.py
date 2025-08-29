@@ -194,7 +194,7 @@ def h1_training_fno(model,
                     lr_scheduler=None,
                     n_epochs=100,
                     verbose=False,
-                    mode="forward",
+                    mode="reverse",
                     jac_weight=1.0,
                     num_splits=4):
     device = next(model.parameters()).device
