@@ -19,6 +19,8 @@ import torch.nn as nn
 
 from tqdm import tqdm
 
+from .metrics import squared_f_norm, squared_f_error
+
 
 def l2_training(model,loss_func,train_loader, validation_loader,\
                      optimizer,lr_scheduler=None,n_epochs = 100, verbose = False):
