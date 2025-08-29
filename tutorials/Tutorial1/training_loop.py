@@ -43,29 +43,29 @@ def build_string(settings):
 
 n_trains = [25,50,100,200,400,800]
 
-#################################################################################
-# RBNO
-architecture = 'rbno'
-output_types = ['full_state', 'observable']
-formulations = ['l2','h1']
+# #################################################################################
+# # RBNO
+# architecture = 'rbno'
+# output_types = ['full_state', 'observable']
+# formulations = ['l2','h1']
 
-for n_train in n_trains:
-	for output_type in output_types:
-		for formulation in formulations:
-			settings = default_settings()
-			settings['n_train'] = n_train
-			settings['architecture'] = architecture
-			settings['output_type'] = output_type
-			settings['formulation'] = formulation
-			print(build_string(settings))
-			os.system(build_string(settings))
+# for n_train in n_trains:
+# 	for output_type in output_types:
+# 		for formulation in formulations:
+# 			settings = default_settings()
+# 			settings['n_train'] = n_train
+# 			settings['architecture'] = architecture
+# 			settings['output_type'] = output_type
+# 			settings['formulation'] = formulation
+# 			print(build_string(settings))
+# 			os.system(build_string(settings))
 
 #################################################################################
 # FNO
 # os.system('export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True')
 architecture = 'fno'
 output_type = 'full_state'
-formulations = ['l2','h1']
+formulations = ['h1']
 
 for n_train in n_trains:
 	for formulation in formulations:
@@ -80,21 +80,21 @@ for n_train in n_trains:
 		print(build_string(settings))
 		os.system(build_string(settings))
 
-#################################################################################
-# DeepONet
+# #################################################################################
+# # DeepONet
 
-architecture = 'don'
-output_type = 'full_state'
-formulations = ['l2','h1']
+# architecture = 'don'
+# output_type = 'full_state'
+# formulations = ['l2','h1']
 
-for n_train in n_trains:
-	for formulation in formulations:
-		settings = default_settings()
-		settings['n_train'] = n_train
-		settings['architecture'] = architecture
-		settings['output_type'] = output_type
-		settings['formulation'] = formulation
-		print(build_string(settings))
-		os.system(build_string(settings))
+# for n_train in n_trains:
+# 	for formulation in formulations:
+# 		settings = default_settings()
+# 		settings['n_train'] = n_train
+# 		settings['architecture'] = architecture
+# 		settings['output_type'] = output_type
+# 		settings['formulation'] = formulation
+# 		print(build_string(settings))
+# 		os.system(build_string(settings))
 
 
